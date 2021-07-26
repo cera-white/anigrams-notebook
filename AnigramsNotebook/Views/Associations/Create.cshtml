@@ -1,0 +1,53 @@
+﻿@model AnigramsNotebook.EF.NBAssociation
+
+@using (Html.BeginForm("Create", "Associations", new { projectId = ViewBag.ProjectId, showHidden = ViewBag.ShowHidden }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="mdl-grid demo-content">
+        <div class="demo-charts demo-cards mdl-color--white mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col">
+            <div class="mdl-card__title mdl-color--deep-orange">
+                <i class="material-icons" role="presentation">attach_file</i>
+                <h2 class="mdl-card__title-text">Create New</h2>
+            </div>
+            <div class="mdl-card__supporting-text mdl-card__supporting-text-scroll" style="height:375px">
+                @Html.ValidationSummary(true, "", new { @style = "display:none" })
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+                    <input type="text" value="" class="mdl-textfield__input" id="ChildId" readonly>
+                    <input type="hidden" value="" name="ChildId">
+                    <label for="ChildId" class="mdl-textfield__label">Child</label>
+                    <ul for="ChildId" class="mdl-menu mdl-menu--bottom-left mdl-js-menu" style="height:200px;overflow-y:auto;">
+                        @foreach (var item in ViewBag.ChildId)
+                        {
+                            <li class="mdl-menu__item" data-val="@item.Value" @(item.Selected ? "data-selected='true'" : "")>@item.Text</li>
+                        }
+                    </ul>
+                </div>
+
+                <div style="margin-bottom:16px;">...is connected to...</div>
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+                    <input type="text" value="" class="mdl-textfield__input" id="ParentId" readonly>
+                    <input type="hidden" value="" name="ParentId">
+                    <label for="ParentId" class="mdl-textfield__label">Parent</label>
+                    <ul for="ParentId" class="mdl-menu mdl-menu--bottom-left mdl-js-menu" style="height:200px;overflow-y:auto;">
+                        @foreach (var item in ViewBag.ParentId)
+                        {
+                            <li class="mdl-menu__item" data-val="@item.Value" @(item.Selected ? "data-selected='true'" : "")>@item.Text</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+                <button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                    Save Changes
+                </button>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,21 @@
+﻿@model AnigramsNotebook.EF.NBScene
+
+<div class="mdl-grid demo-content">
+    <div class="demo-charts demo-cards mdl-color--white mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col">
+        <div class="mdl-card__title mdl-color-text--white" style="background-color:@ViewBag.CurrentCategory.Color">
+            <i class="material-icons" role="presentation">@ViewBag.CurrentCategory.IconName</i>
+            <h2 class="mdl-card__title-text">@Model.Name</h2>
+        </div>
+        <div class="mdl-card__supporting-text mdl-card__supporting-text-scroll">
+            @Model.Description
+            <span class="timestamp">@string.Format("Updated {0:g}", Model.LastModifiedOn)</span>
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+            <a href="@Url.Action("Edit", ViewBag.CurrentCategory.CategoryName, new { id = Model.NBSceneId, projectId = ViewBag.ProjectId, showHidden = ViewBag.ShowHidden })" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                Make Changes
+            </a>
+        </div>
+    </div>
+
+    @Html.Partial("_Details")
+</div>

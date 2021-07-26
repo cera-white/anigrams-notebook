@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="811df917d077455ebcded3c2f6f924af" Name="Diagram1">
+        <EntityTypeShape EntityType="NotebookModel.NBCategory" Width="1.5" PointX="7.75" PointY="4.25" />
+        <EntityTypeShape EntityType="NotebookModel.NBCharacter" Width="1.5" PointX="5.25" PointY="16.125" />
+        <EntityTypeShape EntityType="NotebookModel.NBCreature" Width="1.5" PointX="5.25" PointY="19.5" />
+        <EntityTypeShape EntityType="NotebookModel.NBGroup" Width="1.5" PointX="5.25" PointY="32.75" />
+        <EntityTypeShape EntityType="NotebookModel.NBItem" Width="1.5" PointX="5.25" PointY="9.5" />
+        <EntityTypeShape EntityType="NotebookModel.NBLanguage" Width="1.5" PointX="5.25" PointY="6.25" />
+        <EntityTypeShape EntityType="NotebookModel.NBLocation" Width="1.5" PointX="5.25" PointY="36" />
+        <EntityTypeShape EntityType="NotebookModel.NBMagic" Width="1.5" PointX="5.25" PointY="29.375" />
+        <EntityTypeShape EntityType="NotebookModel.NBOther" Width="1.5" PointX="5.25" PointY="26.125" />
+        <EntityTypeShape EntityType="NotebookModel.NBPlant" Width="1.5" PointX="5.25" PointY="2.875" />
+        <EntityTypeShape EntityType="NotebookModel.NBProject" Width="1.5" PointX="3" PointY="21.375" />
+        <EntityTypeShape EntityType="NotebookModel.NBRace" Width="1.5" PointX="5.25" PointY="22.75" />
+        <EntityTypeShape EntityType="NotebookModel.NBRegion" Width="1.5" PointX="5.25" PointY="42.625" />
+        <EntityTypeShape EntityType="NotebookModel.NBReligion" Width="1.5" PointX="5.25" PointY="12.875" />
+        <EntityTypeShape EntityType="NotebookModel.NBScene" Width="1.5" PointX="5.25" PointY="39.375" />
+        <EntityTypeShape EntityType="NotebookModel.NBUniverse" Width="1.5" PointX="0.75" PointY="22.875" />
+        <AssociationConnector Association="NotebookModel.FK_NBCharacters_NBProjects" />
+        <AssociationConnector Association="NotebookModel.FK_NBCreatures_NBProjects" />
+        <AssociationConnector Association="NotebookModel.FK_NBGroups_NBProjects" />
+        <AssociationConnector Association="NotebookModel.FK_NBItems_NBProjects" />
+        <AssociationConnector Association="NotebookModel.FK_NBLanguages_NBProjects" />
+        <AssociationConnector Association="NotebookModel.FK_NBLocations_NBProjects" />
+        <AssociationConnector Association="NotebookModel.FK_NBMagics_NBProjects" />
+        <AssociationConnector Association="NotebookModel.FK_NBOthers_NBProjects" />
+        <AssociationConnector Association="NotebookModel.FK_NBPlants_NBProjects" />
+        <AssociationConnector Association="NotebookModel.FK_NBProjects_NBUniverses" />
+        <AssociationConnector Association="NotebookModel.FK_NBRaces_NBProjects" />
+        <AssociationConnector Association="NotebookModel.FK_NBRegions_NBProjects" />
+        <AssociationConnector Association="NotebookModel.FK_NBReligions_NBProjects" />
+        <AssociationConnector Association="NotebookModel.FK_NBScenes_NBProjects" />
+        <EntityTypeShape EntityType="NotebookModel.NBPrompt" Width="1.5" PointX="10" PointY="15.625" />
+        <EntityTypeShape EntityType="NotebookModel.NBResource" Width="1.5" PointX="10" PointY="12.25" />
+        <AssociationConnector Association="NotebookModel.FK_NBPrompts_NBCategories" />
+        <AssociationConnector Association="NotebookModel.FK_NBResources_NBCategories" />
+        <EntityTypeShape EntityType="NotebookModel.NBAssociation" Width="1.5" PointX="10" PointY="4.625" />
+        <EntityTypeShape EntityType="NotebookModel.NBImage" Width="1.5" PointX="13" PointY="10" />
+        <EntityTypeShape EntityType="NotebookModel.NBNote" Width="1.5" PointX="13" PointY="14" />
+        <AssociationConnector Association="NotebookModel.FK_NBAssociations_NBCategories" />
+        <AssociationConnector Association="NotebookModel.FK_NBAssociations_NBCategories1" />
+        <AssociationConnector Association="NotebookModel.FK_NBImages_NBCategories" />
+        <AssociationConnector Association="NotebookModel.FK_NBNotes_NBCategories" />
+        <AssociationConnector Association="NotebookModel.FK_NBImages_NBProjects" />
+        <AssociationConnector Association="NotebookModel.FK_NBNotes_NBProjects" />
+        <EntityTypeShape EntityType="NotebookModel.NBChanges_View" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="NotebookModel.NBSearch_View" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="NotebookModel.NBGovernment" Width="1.5" PointX="5.25" PointY="0.75" />
+        <EntityTypeShape EntityType="NotebookModel.NBHistory" Width="1.5" PointX="5.25" PointY="48" />
+        <AssociationConnector Association="NotebookModel.FK_NBGovernments_NBProjects" />
+        <AssociationConnector Association="NotebookModel.FK_NBHistories_NBProjects" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

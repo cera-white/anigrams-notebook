@@ -1,0 +1,36 @@
+﻿@model IEnumerable<AnigramsNotebook.EF.NBRace>
+
+<div class="mdl-grid demo-content">
+    <div class="demo-updates demo-charts demo-cards mdl-color--white mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col">
+        <div class="mdl-card__title mdl-color-text--white" style="background-color:@ViewBag.CurrentCategory.Color">
+            <i class="material-icons" role="presentation">@ViewBag.CurrentCategory.IconName</i>
+            <h2 class="mdl-card__title-text">@ViewBag.CurrentCategory.CategoryName</h2>
+        </div>
+        <div class="mdl-card__supporting-text mdl-card__supporting-text-scroll">
+            <ul class="demo-list-two mdl-list">
+                @foreach (var item in Model)
+                {
+                    <li class="mdl-list__item mdl-list__item--three-line">
+                        <a class="mdl-list__item-primary-content" href="@Url.Action("Details", ViewBag.CurrentCategory.CategoryName, new { id = item.NBRaceId, projectId = ViewBag.ProjectId, showHidden = ViewBag.ShowHidden })">
+                            <i class="material-icons mdl-list__item-avatar" style="background-color:transparent;color:@ViewBag.CurrentCategory.Color">@ViewBag.CurrentCategory.IconName</i>
+                            <span>@item.Name</span>
+                            <span class="mdl-list__item-text-body">
+                                @item.Description
+                            </span>
+                        </a>
+                        <span class="mdl-list__item-secondary-content mdl-color-text--grey-600">
+                            <a href="@Url.Action("Edit", ViewBag.CurrentCategory.CategoryName, new { id = item.NBRaceId, projectId = ViewBag.ProjectId, showHidden = ViewBag.ShowHidden })" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-list__item-secondary-action">
+                                <i class="material-icons">mode_edit</i>
+                            </a>
+                        </span>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+            <a href="@Url.Action("Create", ViewBag.CurrentCategory.CategoryName, new { projectId = ViewBag.ProjectId, showHidden = ViewBag.ShowHidden })" class="mdl-button mdl-js-button mdl-js-ripple-effect">Add Another</a>
+        </div>
+    </div>
+
+    @Html.Partial("_Index")
+</div>

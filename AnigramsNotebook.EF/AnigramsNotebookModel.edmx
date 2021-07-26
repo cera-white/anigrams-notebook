@@ -1,0 +1,1918 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="NotebookModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="NBAssociations">
+          <Key>
+            <PropertyRef Name="NBAssociationId" />
+          </Key>
+          <Property Name="NBAssociationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParentCategoryId" Type="int" Nullable="false" />
+          <Property Name="ParentId" Type="int" Nullable="false" />
+          <Property Name="ChildCategoryId" Type="int" Nullable="false" />
+          <Property Name="ChildId" Type="int" Nullable="false" />
+          <Property Name="ChildName" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="LastModifiedOn" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="NBCategories">
+          <Key>
+            <PropertyRef Name="NBCategoryId" />
+          </Key>
+          <Property Name="NBCategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="TableName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IconName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Color" Type="nvarchar" MaxLength="12" />
+          <Property Name="Rank" Type="int" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" />
+          <Property Name="LastModifiedOn" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="NBCharacters">
+          <Key>
+            <PropertyRef Name="NBCharacterId" />
+          </Key>
+          <Property Name="NBCharacterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NBProjectId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" />
+          <Property Name="LastModifiedOn" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="NBCreatures">
+          <Key>
+            <PropertyRef Name="NBCreatureId" />
+          </Key>
+          <Property Name="NBCreatureId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NBProjectId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" />
+          <Property Name="LastModifiedOn" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="NBGovernments">
+          <Key>
+            <PropertyRef Name="NBGovernmentId" />
+          </Key>
+          <Property Name="NBGovernmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NBProjectId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" />
+          <Property Name="LastModifiedOn" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="NBGroups">
+          <Key>
+            <PropertyRef Name="NBGroupId" />
+          </Key>
+          <Property Name="NBGroupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NBProjectId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" />
+          <Property Name="LastModifiedOn" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="NBHistories">
+          <Key>
+            <PropertyRef Name="NBHistoryId" />
+          </Key>
+          <Property Name="NBHistoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NBProjectId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" />
+          <Property Name="LastModifiedOn" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="NBImages">
+          <Key>
+            <PropertyRef Name="NBImageId" />
+          </Key>
+          <Property Name="NBImageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NBProjectId" Type="int" Nullable="false" />
+          <Property Name="ObjectCategoryId" Type="int" Nullable="false" />
+          <Property Name="ObjectId" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Filename" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" />
+          <Property Name="LastModifiedOn" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="NBItems">
+          <Key>
+            <PropertyRef Name="NBItemId" />
+          </Key>
+          <Property Name="NBItemId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NBProjectId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" />
+          <Property Name="LastModifiedOn" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="NBLanguages">
+          <Key>
+            <PropertyRef Name="NBLanguageId" />
+          </Key>
+          <Property Name="NBLanguageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NBProjectId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" />
+          <Property Name="LastModifiedOn" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="NBLocations">
+          <Key>
+            <PropertyRef Name="NBLocationId" />
+          </Key>
+          <Property Name="NBLocationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NBProjectId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" />
+          <Property Name="LastModifiedOn" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="NBMagics">
+          <Key>
+            <PropertyRef Name="NBMagicId" />
+          </Key>
+          <Property Name="NBMagicId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NBProjectId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" />
+          <Property Name="LastModifiedOn" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="NBNotes">
+          <Key>
+            <PropertyRef Name="NBNoteId" />
+          </Key>
+          <Property Name="NBNoteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NBProjectId" Type="int" Nullable="false" />
+          <Property Name="ObjectCategoryId" Type="int" Nullable="false" />
+          <Property Name="ObjectId" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" />
+          <Property Name="LastModifiedOn" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="NBOthers">
+          <Key>
+            <PropertyRef Name="NBOtherId" />
+          </Key>
+          <Property Name="NBOtherId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NBProjectId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" />
+          <Property Name="LastModifiedOn" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="NBPlants">
+          <Key>
+            <PropertyRef Name="NBPlantId" />
+          </Key>
+          <Property Name="NBPlantId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NBProjectId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" />
+          <Property Name="LastModifiedOn" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="NBProjects">
+          <Key>
+            <PropertyRef Name="NBProjectId" />
+          </Key>
+          <Property Name="NBProjectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NBUniverseId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Genre" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" />
+          <Property Name="LastModifiedOn" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="NBPrompts">
+          <Key>
+            <PropertyRef Name="NBPromptId" />
+          </Key>
+          <Property Name="NBPromptId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NBCategoryId" Type="int" Nullable="false" />
+          <Property Name="Text" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Source" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" />
+          <Property Name="LastModifiedOn" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="NBRaces">
+          <Key>
+            <PropertyRef Name="NBRaceId" />
+          </Key>
+          <Property Name="NBRaceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NBProjectId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" />
+          <Property Name="LastModifiedOn" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="NBRegions">
+          <Key>
+            <PropertyRef Name="NBRegionId" />
+          </Key>
+          <Property Name="NBRegionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NBProjectId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" />
+          <Property Name="LastModifiedOn" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="NBReligions">
+          <Key>
+            <PropertyRef Name="NBReligionId" />
+          </Key>
+          <Property Name="NBReligionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NBProjectId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" />
+          <Property Name="LastModifiedOn" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="NBResources">
+          <Key>
+            <PropertyRef Name="NBResourceId" />
+          </Key>
+          <Property Name="NBResourceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NBCategoryId" Type="int" Nullable="false" />
+          <Property Name="DisplayName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Url" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" />
+          <Property Name="LastModifiedOn" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="NBScenes">
+          <Key>
+            <PropertyRef Name="NBSceneId" />
+          </Key>
+          <Property Name="NBSceneId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NBProjectId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" />
+          <Property Name="LastModifiedOn" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="NBUniverses">
+          <Key>
+            <PropertyRef Name="NBUniverseId" />
+          </Key>
+          <Property Name="NBUniverseId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" />
+          <Property Name="LastModifiedOn" Type="datetime2" Precision="7" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Notebook.dbo.NBChanges_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="NBChanges_View">
+          <Key>
+            
+            
+            
+            
+            
+            
+            <PropertyRef Name="NBChangeId" />
+          </Key>
+          <Property Name="NBChangeId" Type="bigint" Nullable="false" />
+          <Property Name="NBCategoryId" Type="int" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ObjectId" Type="int" Nullable="false" />
+          <Property Name="NBProjectId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IconName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Color" Type="nvarchar" MaxLength="12" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" />
+          <Property Name="LastModifiedOn" Type="datetime2" Precision="7" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Notebook.dbo.NBSearch_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="NBSearch_View">
+          <Key>
+            
+            
+            
+            
+            <PropertyRef Name="NBSearchId" />
+          </Key>
+          <Property Name="NBSearchId" Type="bigint" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ObjectId" Type="int" Nullable="false" />
+          <Property Name="NBProjectId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="IconName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Color" Type="nvarchar" MaxLength="12" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_NBAssociations_NBCategories">
+          <End Role="NBCategories" Type="Self.NBCategories" Multiplicity="1" />
+          <End Role="NBAssociations" Type="Self.NBAssociations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBCategories">
+              <PropertyRef Name="NBCategoryId" />
+            </Principal>
+            <Dependent Role="NBAssociations">
+              <PropertyRef Name="ParentCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBAssociations_NBCategories1">
+          <End Role="NBCategories" Type="Self.NBCategories" Multiplicity="1" />
+          <End Role="NBAssociations" Type="Self.NBAssociations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBCategories">
+              <PropertyRef Name="NBCategoryId" />
+            </Principal>
+            <Dependent Role="NBAssociations">
+              <PropertyRef Name="ChildCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBCharacters_NBProjects">
+          <End Role="NBProjects" Type="Self.NBProjects" Multiplicity="1" />
+          <End Role="NBCharacters" Type="Self.NBCharacters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProjects">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBCharacters">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBCreatures_NBProjects">
+          <End Role="NBProjects" Type="Self.NBProjects" Multiplicity="1" />
+          <End Role="NBCreatures" Type="Self.NBCreatures" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProjects">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBCreatures">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBGovernments_NBProjects">
+          <End Role="NBProjects" Type="Self.NBProjects" Multiplicity="1" />
+          <End Role="NBGovernments" Type="Self.NBGovernments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProjects">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBGovernments">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBGroups_NBProjects">
+          <End Role="NBProjects" Type="Self.NBProjects" Multiplicity="1" />
+          <End Role="NBGroups" Type="Self.NBGroups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProjects">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBGroups">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBHistories_NBProjects">
+          <End Role="NBProjects" Type="Self.NBProjects" Multiplicity="1" />
+          <End Role="NBHistories" Type="Self.NBHistories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProjects">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBHistories">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBImages_NBCategories">
+          <End Role="NBCategories" Type="Self.NBCategories" Multiplicity="1" />
+          <End Role="NBImages" Type="Self.NBImages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBCategories">
+              <PropertyRef Name="NBCategoryId" />
+            </Principal>
+            <Dependent Role="NBImages">
+              <PropertyRef Name="ObjectCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBImages_NBProjects">
+          <End Role="NBProjects" Type="Self.NBProjects" Multiplicity="1" />
+          <End Role="NBImages" Type="Self.NBImages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProjects">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBImages">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBItems_NBProjects">
+          <End Role="NBProjects" Type="Self.NBProjects" Multiplicity="1" />
+          <End Role="NBItems" Type="Self.NBItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProjects">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBItems">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBLanguages_NBProjects">
+          <End Role="NBProjects" Type="Self.NBProjects" Multiplicity="1" />
+          <End Role="NBLanguages" Type="Self.NBLanguages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProjects">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBLanguages">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBLocations_NBProjects">
+          <End Role="NBProjects" Type="Self.NBProjects" Multiplicity="1" />
+          <End Role="NBLocations" Type="Self.NBLocations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProjects">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBLocations">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBMagics_NBProjects">
+          <End Role="NBProjects" Type="Self.NBProjects" Multiplicity="1" />
+          <End Role="NBMagics" Type="Self.NBMagics" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProjects">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBMagics">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBNotes_NBCategories">
+          <End Role="NBCategories" Type="Self.NBCategories" Multiplicity="1" />
+          <End Role="NBNotes" Type="Self.NBNotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBCategories">
+              <PropertyRef Name="NBCategoryId" />
+            </Principal>
+            <Dependent Role="NBNotes">
+              <PropertyRef Name="ObjectCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBNotes_NBProjects">
+          <End Role="NBProjects" Type="Self.NBProjects" Multiplicity="1" />
+          <End Role="NBNotes" Type="Self.NBNotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProjects">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBNotes">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBOthers_NBProjects">
+          <End Role="NBProjects" Type="Self.NBProjects" Multiplicity="1" />
+          <End Role="NBOthers" Type="Self.NBOthers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProjects">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBOthers">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBPlants_NBProjects">
+          <End Role="NBProjects" Type="Self.NBProjects" Multiplicity="1" />
+          <End Role="NBPlants" Type="Self.NBPlants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProjects">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBPlants">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBProjects_NBUniverses">
+          <End Role="NBUniverses" Type="Self.NBUniverses" Multiplicity="1" />
+          <End Role="NBProjects" Type="Self.NBProjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBUniverses">
+              <PropertyRef Name="NBUniverseId" />
+            </Principal>
+            <Dependent Role="NBProjects">
+              <PropertyRef Name="NBUniverseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBPrompts_NBCategories">
+          <End Role="NBCategories" Type="Self.NBCategories" Multiplicity="1" />
+          <End Role="NBPrompts" Type="Self.NBPrompts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBCategories">
+              <PropertyRef Name="NBCategoryId" />
+            </Principal>
+            <Dependent Role="NBPrompts">
+              <PropertyRef Name="NBCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBRaces_NBProjects">
+          <End Role="NBProjects" Type="Self.NBProjects" Multiplicity="1" />
+          <End Role="NBRaces" Type="Self.NBRaces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProjects">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBRaces">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBRegions_NBProjects">
+          <End Role="NBProjects" Type="Self.NBProjects" Multiplicity="1" />
+          <End Role="NBRegions" Type="Self.NBRegions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProjects">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBRegions">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBReligions_NBProjects">
+          <End Role="NBProjects" Type="Self.NBProjects" Multiplicity="1" />
+          <End Role="NBReligions" Type="Self.NBReligions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProjects">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBReligions">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBResources_NBCategories">
+          <End Role="NBCategories" Type="Self.NBCategories" Multiplicity="1" />
+          <End Role="NBResources" Type="Self.NBResources" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBCategories">
+              <PropertyRef Name="NBCategoryId" />
+            </Principal>
+            <Dependent Role="NBResources">
+              <PropertyRef Name="NBCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBScenes_NBProjects">
+          <End Role="NBProjects" Type="Self.NBProjects" Multiplicity="1" />
+          <End Role="NBScenes" Type="Self.NBScenes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProjects">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBScenes">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NotebookModelStoreContainer">
+          <EntitySet Name="NBAssociations" EntityType="Self.NBAssociations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NBCategories" EntityType="Self.NBCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NBCharacters" EntityType="Self.NBCharacters" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NBCreatures" EntityType="Self.NBCreatures" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NBGovernments" EntityType="Self.NBGovernments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NBGroups" EntityType="Self.NBGroups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NBHistories" EntityType="Self.NBHistories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NBImages" EntityType="Self.NBImages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NBItems" EntityType="Self.NBItems" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NBLanguages" EntityType="Self.NBLanguages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NBLocations" EntityType="Self.NBLocations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NBMagics" EntityType="Self.NBMagics" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NBNotes" EntityType="Self.NBNotes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NBOthers" EntityType="Self.NBOthers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NBPlants" EntityType="Self.NBPlants" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NBProjects" EntityType="Self.NBProjects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NBPrompts" EntityType="Self.NBPrompts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NBRaces" EntityType="Self.NBRaces" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NBRegions" EntityType="Self.NBRegions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NBReligions" EntityType="Self.NBReligions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NBResources" EntityType="Self.NBResources" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NBScenes" EntityType="Self.NBScenes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NBUniverses" EntityType="Self.NBUniverses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NBChanges_View" EntityType="Self.NBChanges_View" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [NBChanges_View].[NBChangeId] AS [NBChangeId], 
+    [NBChanges_View].[NBCategoryId] AS [NBCategoryId], 
+    [NBChanges_View].[CategoryName] AS [CategoryName], 
+    [NBChanges_View].[ObjectId] AS [ObjectId], 
+    [NBChanges_View].[NBProjectId] AS [NBProjectId], 
+    [NBChanges_View].[Name] AS [Name], 
+    [NBChanges_View].[IconName] AS [IconName], 
+    [NBChanges_View].[Color] AS [Color], 
+    [NBChanges_View].[CreatedOn] AS [CreatedOn], 
+    [NBChanges_View].[LastModifiedOn] AS [LastModifiedOn], 
+    [NBChanges_View].[IsActive] AS [IsActive]
+    FROM [dbo].[NBChanges_View] AS [NBChanges_View]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="NBSearch_View" EntityType="Self.NBSearch_View" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [NBSearch_View].[NBSearchId] AS [NBSearchId], 
+    [NBSearch_View].[CategoryName] AS [CategoryName], 
+    [NBSearch_View].[ObjectId] AS [ObjectId], 
+    [NBSearch_View].[NBProjectId] AS [NBProjectId], 
+    [NBSearch_View].[Name] AS [Name], 
+    [NBSearch_View].[Description] AS [Description], 
+    [NBSearch_View].[IconName] AS [IconName], 
+    [NBSearch_View].[Color] AS [Color], 
+    [NBSearch_View].[IsActive] AS [IsActive]
+    FROM [dbo].[NBSearch_View] AS [NBSearch_View]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_NBAssociations_NBCategories" Association="Self.FK_NBAssociations_NBCategories">
+            <End Role="NBCategories" EntitySet="NBCategories" />
+            <End Role="NBAssociations" EntitySet="NBAssociations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBAssociations_NBCategories1" Association="Self.FK_NBAssociations_NBCategories1">
+            <End Role="NBCategories" EntitySet="NBCategories" />
+            <End Role="NBAssociations" EntitySet="NBAssociations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBCharacters_NBProjects" Association="Self.FK_NBCharacters_NBProjects">
+            <End Role="NBProjects" EntitySet="NBProjects" />
+            <End Role="NBCharacters" EntitySet="NBCharacters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBCreatures_NBProjects" Association="Self.FK_NBCreatures_NBProjects">
+            <End Role="NBProjects" EntitySet="NBProjects" />
+            <End Role="NBCreatures" EntitySet="NBCreatures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBGovernments_NBProjects" Association="Self.FK_NBGovernments_NBProjects">
+            <End Role="NBProjects" EntitySet="NBProjects" />
+            <End Role="NBGovernments" EntitySet="NBGovernments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBGroups_NBProjects" Association="Self.FK_NBGroups_NBProjects">
+            <End Role="NBProjects" EntitySet="NBProjects" />
+            <End Role="NBGroups" EntitySet="NBGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBHistories_NBProjects" Association="Self.FK_NBHistories_NBProjects">
+            <End Role="NBProjects" EntitySet="NBProjects" />
+            <End Role="NBHistories" EntitySet="NBHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBImages_NBCategories" Association="Self.FK_NBImages_NBCategories">
+            <End Role="NBCategories" EntitySet="NBCategories" />
+            <End Role="NBImages" EntitySet="NBImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBImages_NBProjects" Association="Self.FK_NBImages_NBProjects">
+            <End Role="NBProjects" EntitySet="NBProjects" />
+            <End Role="NBImages" EntitySet="NBImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBItems_NBProjects" Association="Self.FK_NBItems_NBProjects">
+            <End Role="NBProjects" EntitySet="NBProjects" />
+            <End Role="NBItems" EntitySet="NBItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBLanguages_NBProjects" Association="Self.FK_NBLanguages_NBProjects">
+            <End Role="NBProjects" EntitySet="NBProjects" />
+            <End Role="NBLanguages" EntitySet="NBLanguages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBLocations_NBProjects" Association="Self.FK_NBLocations_NBProjects">
+            <End Role="NBProjects" EntitySet="NBProjects" />
+            <End Role="NBLocations" EntitySet="NBLocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBMagics_NBProjects" Association="Self.FK_NBMagics_NBProjects">
+            <End Role="NBProjects" EntitySet="NBProjects" />
+            <End Role="NBMagics" EntitySet="NBMagics" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBNotes_NBCategories" Association="Self.FK_NBNotes_NBCategories">
+            <End Role="NBCategories" EntitySet="NBCategories" />
+            <End Role="NBNotes" EntitySet="NBNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBNotes_NBProjects" Association="Self.FK_NBNotes_NBProjects">
+            <End Role="NBProjects" EntitySet="NBProjects" />
+            <End Role="NBNotes" EntitySet="NBNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBOthers_NBProjects" Association="Self.FK_NBOthers_NBProjects">
+            <End Role="NBProjects" EntitySet="NBProjects" />
+            <End Role="NBOthers" EntitySet="NBOthers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBPlants_NBProjects" Association="Self.FK_NBPlants_NBProjects">
+            <End Role="NBProjects" EntitySet="NBProjects" />
+            <End Role="NBPlants" EntitySet="NBPlants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBProjects_NBUniverses" Association="Self.FK_NBProjects_NBUniverses">
+            <End Role="NBUniverses" EntitySet="NBUniverses" />
+            <End Role="NBProjects" EntitySet="NBProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBPrompts_NBCategories" Association="Self.FK_NBPrompts_NBCategories">
+            <End Role="NBCategories" EntitySet="NBCategories" />
+            <End Role="NBPrompts" EntitySet="NBPrompts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBRaces_NBProjects" Association="Self.FK_NBRaces_NBProjects">
+            <End Role="NBProjects" EntitySet="NBProjects" />
+            <End Role="NBRaces" EntitySet="NBRaces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBRegions_NBProjects" Association="Self.FK_NBRegions_NBProjects">
+            <End Role="NBProjects" EntitySet="NBProjects" />
+            <End Role="NBRegions" EntitySet="NBRegions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBReligions_NBProjects" Association="Self.FK_NBReligions_NBProjects">
+            <End Role="NBProjects" EntitySet="NBProjects" />
+            <End Role="NBReligions" EntitySet="NBReligions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBResources_NBCategories" Association="Self.FK_NBResources_NBCategories">
+            <End Role="NBCategories" EntitySet="NBCategories" />
+            <End Role="NBResources" EntitySet="NBResources" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBScenes_NBProjects" Association="Self.FK_NBScenes_NBProjects">
+            <End Role="NBProjects" EntitySet="NBProjects" />
+            <End Role="NBScenes" EntitySet="NBScenes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NotebookModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="NotebookEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="NBCategories" EntityType="NotebookModel.NBCategory" />
+          <EntitySet Name="NBCharacters" EntityType="NotebookModel.NBCharacter" />
+          <EntitySet Name="NBCreatures" EntityType="NotebookModel.NBCreature" />
+          <EntitySet Name="NBGroups" EntityType="NotebookModel.NBGroup" />
+          <EntitySet Name="NBItems" EntityType="NotebookModel.NBItem" />
+          <EntitySet Name="NBLanguages" EntityType="NotebookModel.NBLanguage" />
+          <EntitySet Name="NBLocations" EntityType="NotebookModel.NBLocation" />
+          <EntitySet Name="NBMagics" EntityType="NotebookModel.NBMagic" />
+          <EntitySet Name="NBOthers" EntityType="NotebookModel.NBOther" />
+          <EntitySet Name="NBPlants" EntityType="NotebookModel.NBPlant" />
+          <EntitySet Name="NBProjects" EntityType="NotebookModel.NBProject" />
+          <EntitySet Name="NBRaces" EntityType="NotebookModel.NBRace" />
+          <EntitySet Name="NBRegions" EntityType="NotebookModel.NBRegion" />
+          <EntitySet Name="NBReligions" EntityType="NotebookModel.NBReligion" />
+          <EntitySet Name="NBScenes" EntityType="NotebookModel.NBScene" />
+          <EntitySet Name="NBUniverses" EntityType="NotebookModel.NBUniverse" />
+          <AssociationSet Name="FK_NBCharacters_NBProjects" Association="NotebookModel.FK_NBCharacters_NBProjects">
+            <End Role="NBProject" EntitySet="NBProjects" />
+            <End Role="NBCharacter" EntitySet="NBCharacters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBCreatures_NBProjects" Association="NotebookModel.FK_NBCreatures_NBProjects">
+            <End Role="NBProject" EntitySet="NBProjects" />
+            <End Role="NBCreature" EntitySet="NBCreatures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBGroups_NBProjects" Association="NotebookModel.FK_NBGroups_NBProjects">
+            <End Role="NBProject" EntitySet="NBProjects" />
+            <End Role="NBGroup" EntitySet="NBGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBItems_NBProjects" Association="NotebookModel.FK_NBItems_NBProjects">
+            <End Role="NBProject" EntitySet="NBProjects" />
+            <End Role="NBItem" EntitySet="NBItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBLanguages_NBProjects" Association="NotebookModel.FK_NBLanguages_NBProjects">
+            <End Role="NBProject" EntitySet="NBProjects" />
+            <End Role="NBLanguage" EntitySet="NBLanguages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBLocations_NBProjects" Association="NotebookModel.FK_NBLocations_NBProjects">
+            <End Role="NBProject" EntitySet="NBProjects" />
+            <End Role="NBLocation" EntitySet="NBLocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBMagics_NBProjects" Association="NotebookModel.FK_NBMagics_NBProjects">
+            <End Role="NBProject" EntitySet="NBProjects" />
+            <End Role="NBMagic" EntitySet="NBMagics" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBOthers_NBProjects" Association="NotebookModel.FK_NBOthers_NBProjects">
+            <End Role="NBProject" EntitySet="NBProjects" />
+            <End Role="NBOther" EntitySet="NBOthers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBPlants_NBProjects" Association="NotebookModel.FK_NBPlants_NBProjects">
+            <End Role="NBProject" EntitySet="NBProjects" />
+            <End Role="NBPlant" EntitySet="NBPlants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBProjects_NBUniverses" Association="NotebookModel.FK_NBProjects_NBUniverses">
+            <End Role="NBUnivers" EntitySet="NBUniverses" />
+            <End Role="NBProject" EntitySet="NBProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBRaces_NBProjects" Association="NotebookModel.FK_NBRaces_NBProjects">
+            <End Role="NBProject" EntitySet="NBProjects" />
+            <End Role="NBRace" EntitySet="NBRaces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBRegions_NBProjects" Association="NotebookModel.FK_NBRegions_NBProjects">
+            <End Role="NBProject" EntitySet="NBProjects" />
+            <End Role="NBRegion" EntitySet="NBRegions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBReligions_NBProjects" Association="NotebookModel.FK_NBReligions_NBProjects">
+            <End Role="NBProject" EntitySet="NBProjects" />
+            <End Role="NBReligion" EntitySet="NBReligions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBScenes_NBProjects" Association="NotebookModel.FK_NBScenes_NBProjects">
+            <End Role="NBProject" EntitySet="NBProjects" />
+            <End Role="NBScene" EntitySet="NBScenes" />
+          </AssociationSet>
+          <EntitySet Name="NBPrompts" EntityType="NotebookModel.NBPrompt" />
+          <EntitySet Name="NBResources" EntityType="NotebookModel.NBResource" />
+          <AssociationSet Name="FK_NBPrompts_NBCategories" Association="NotebookModel.FK_NBPrompts_NBCategories">
+            <End Role="NBCategory" EntitySet="NBCategories" />
+            <End Role="NBPrompt" EntitySet="NBPrompts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBResources_NBCategories" Association="NotebookModel.FK_NBResources_NBCategories">
+            <End Role="NBCategory" EntitySet="NBCategories" />
+            <End Role="NBResource" EntitySet="NBResources" />
+          </AssociationSet>
+          <EntitySet Name="NBAssociations" EntityType="NotebookModel.NBAssociation" />
+          <EntitySet Name="NBImages" EntityType="NotebookModel.NBImage" />
+          <EntitySet Name="NBNotes" EntityType="NotebookModel.NBNote" />
+          <AssociationSet Name="FK_NBAssociations_NBCategories" Association="NotebookModel.FK_NBAssociations_NBCategories">
+            <End Role="NBCategory" EntitySet="NBCategories" />
+            <End Role="NBAssociation" EntitySet="NBAssociations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBAssociations_NBCategories1" Association="NotebookModel.FK_NBAssociations_NBCategories1">
+            <End Role="NBCategory" EntitySet="NBCategories" />
+            <End Role="NBAssociation" EntitySet="NBAssociations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBImages_NBCategories" Association="NotebookModel.FK_NBImages_NBCategories">
+            <End Role="NBCategory" EntitySet="NBCategories" />
+            <End Role="NBImage" EntitySet="NBImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBNotes_NBCategories" Association="NotebookModel.FK_NBNotes_NBCategories">
+            <End Role="NBCategory" EntitySet="NBCategories" />
+            <End Role="NBNote" EntitySet="NBNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBImages_NBProjects" Association="NotebookModel.FK_NBImages_NBProjects">
+            <End Role="NBProject" EntitySet="NBProjects" />
+            <End Role="NBImage" EntitySet="NBImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBNotes_NBProjects" Association="NotebookModel.FK_NBNotes_NBProjects">
+            <End Role="NBProject" EntitySet="NBProjects" />
+            <End Role="NBNote" EntitySet="NBNotes" />
+          </AssociationSet>
+          <EntitySet Name="NBChanges_View" EntityType="NotebookModel.NBChanges_View" />
+          <EntitySet Name="NBSearch_View" EntityType="NotebookModel.NBSearch_View" />
+          <EntitySet Name="NBGovernments" EntityType="NotebookModel.NBGovernment" />
+          <EntitySet Name="NBHistories" EntityType="NotebookModel.NBHistory" />
+          <AssociationSet Name="FK_NBGovernments_NBProjects" Association="NotebookModel.FK_NBGovernments_NBProjects">
+            <End Role="NBProject" EntitySet="NBProjects" />
+            <End Role="NBGovernment" EntitySet="NBGovernments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NBHistories_NBProjects" Association="NotebookModel.FK_NBHistories_NBProjects">
+            <End Role="NBProject" EntitySet="NBProjects" />
+            <End Role="NBHistory" EntitySet="NBHistories" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="NBCategory">
+          <Key>
+            <PropertyRef Name="NBCategoryId" />
+          </Key>
+          <Property Name="NBCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TableName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IconName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Color" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="Rank" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="7" />
+          <Property Name="LastModifiedOn" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="NBPrompts" Relationship="NotebookModel.FK_NBPrompts_NBCategories" FromRole="NBCategory" ToRole="NBPrompt" />
+          <NavigationProperty Name="NBResources" Relationship="NotebookModel.FK_NBResources_NBCategories" FromRole="NBCategory" ToRole="NBResource" />
+          <NavigationProperty Name="NBAssociations" Relationship="NotebookModel.FK_NBAssociations_NBCategories" FromRole="NBCategory" ToRole="NBAssociation" />
+          <NavigationProperty Name="NBAssociations1" Relationship="NotebookModel.FK_NBAssociations_NBCategories1" FromRole="NBCategory" ToRole="NBAssociation" />
+          <NavigationProperty Name="NBImages" Relationship="NotebookModel.FK_NBImages_NBCategories" FromRole="NBCategory" ToRole="NBImage" />
+          <NavigationProperty Name="NBNotes" Relationship="NotebookModel.FK_NBNotes_NBCategories" FromRole="NBCategory" ToRole="NBNote" />
+          </EntityType>
+        <EntityType Name="NBCharacter">
+          <Key>
+            <PropertyRef Name="NBCharacterId" />
+          </Key>
+          <Property Name="NBCharacterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NBProjectId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="7" />
+          <Property Name="LastModifiedOn" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="NBProject" Relationship="NotebookModel.FK_NBCharacters_NBProjects" FromRole="NBCharacter" ToRole="NBProject" />
+        </EntityType>
+        <EntityType Name="NBCreature">
+          <Key>
+            <PropertyRef Name="NBCreatureId" />
+          </Key>
+          <Property Name="NBCreatureId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NBProjectId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="7" />
+          <Property Name="LastModifiedOn" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="NBProject" Relationship="NotebookModel.FK_NBCreatures_NBProjects" FromRole="NBCreature" ToRole="NBProject" />
+        </EntityType>
+        <EntityType Name="NBGroup">
+          <Key>
+            <PropertyRef Name="NBGroupId" />
+          </Key>
+          <Property Name="NBGroupId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NBProjectId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="7" />
+          <Property Name="LastModifiedOn" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="NBProject" Relationship="NotebookModel.FK_NBGroups_NBProjects" FromRole="NBGroup" ToRole="NBProject" />
+        </EntityType>
+        <EntityType Name="NBItem">
+          <Key>
+            <PropertyRef Name="NBItemId" />
+          </Key>
+          <Property Name="NBItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NBProjectId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="7" />
+          <Property Name="LastModifiedOn" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="NBProject" Relationship="NotebookModel.FK_NBItems_NBProjects" FromRole="NBItem" ToRole="NBProject" />
+        </EntityType>
+        <EntityType Name="NBLanguage">
+          <Key>
+            <PropertyRef Name="NBLanguageId" />
+          </Key>
+          <Property Name="NBLanguageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NBProjectId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="7" />
+          <Property Name="LastModifiedOn" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="NBProject" Relationship="NotebookModel.FK_NBLanguages_NBProjects" FromRole="NBLanguage" ToRole="NBProject" />
+        </EntityType>
+        <EntityType Name="NBLocation">
+          <Key>
+            <PropertyRef Name="NBLocationId" />
+          </Key>
+          <Property Name="NBLocationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NBProjectId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="7" />
+          <Property Name="LastModifiedOn" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="NBProject" Relationship="NotebookModel.FK_NBLocations_NBProjects" FromRole="NBLocation" ToRole="NBProject" />
+        </EntityType>
+        <EntityType Name="NBMagic">
+          <Key>
+            <PropertyRef Name="NBMagicId" />
+          </Key>
+          <Property Name="NBMagicId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NBProjectId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="7" />
+          <Property Name="LastModifiedOn" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="NBProject" Relationship="NotebookModel.FK_NBMagics_NBProjects" FromRole="NBMagic" ToRole="NBProject" />
+        </EntityType>
+        <EntityType Name="NBOther">
+          <Key>
+            <PropertyRef Name="NBOtherId" />
+          </Key>
+          <Property Name="NBOtherId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NBProjectId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="7" />
+          <Property Name="LastModifiedOn" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="NBProject" Relationship="NotebookModel.FK_NBOthers_NBProjects" FromRole="NBOther" ToRole="NBProject" />
+        </EntityType>
+        <EntityType Name="NBPlant">
+          <Key>
+            <PropertyRef Name="NBPlantId" />
+          </Key>
+          <Property Name="NBPlantId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NBProjectId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="7" />
+          <Property Name="LastModifiedOn" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="NBProject" Relationship="NotebookModel.FK_NBPlants_NBProjects" FromRole="NBPlant" ToRole="NBProject" />
+        </EntityType>
+        <EntityType Name="NBProject">
+          <Key>
+            <PropertyRef Name="NBProjectId" />
+          </Key>
+          <Property Name="NBProjectId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NBUniverseId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Genre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="7" />
+          <Property Name="LastModifiedOn" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="NBCharacters" Relationship="NotebookModel.FK_NBCharacters_NBProjects" FromRole="NBProject" ToRole="NBCharacter" />
+          <NavigationProperty Name="NBCreatures" Relationship="NotebookModel.FK_NBCreatures_NBProjects" FromRole="NBProject" ToRole="NBCreature" />
+          <NavigationProperty Name="NBGroups" Relationship="NotebookModel.FK_NBGroups_NBProjects" FromRole="NBProject" ToRole="NBGroup" />
+          <NavigationProperty Name="NBItems" Relationship="NotebookModel.FK_NBItems_NBProjects" FromRole="NBProject" ToRole="NBItem" />
+          <NavigationProperty Name="NBLanguages" Relationship="NotebookModel.FK_NBLanguages_NBProjects" FromRole="NBProject" ToRole="NBLanguage" />
+          <NavigationProperty Name="NBLocations" Relationship="NotebookModel.FK_NBLocations_NBProjects" FromRole="NBProject" ToRole="NBLocation" />
+          <NavigationProperty Name="NBMagics" Relationship="NotebookModel.FK_NBMagics_NBProjects" FromRole="NBProject" ToRole="NBMagic" />
+          <NavigationProperty Name="NBOthers" Relationship="NotebookModel.FK_NBOthers_NBProjects" FromRole="NBProject" ToRole="NBOther" />
+          <NavigationProperty Name="NBPlants" Relationship="NotebookModel.FK_NBPlants_NBProjects" FromRole="NBProject" ToRole="NBPlant" />
+          <NavigationProperty Name="NBUnivers" Relationship="NotebookModel.FK_NBProjects_NBUniverses" FromRole="NBProject" ToRole="NBUnivers" />
+          <NavigationProperty Name="NBRaces" Relationship="NotebookModel.FK_NBRaces_NBProjects" FromRole="NBProject" ToRole="NBRace" />
+          <NavigationProperty Name="NBRegions" Relationship="NotebookModel.FK_NBRegions_NBProjects" FromRole="NBProject" ToRole="NBRegion" />
+          <NavigationProperty Name="NBReligions" Relationship="NotebookModel.FK_NBReligions_NBProjects" FromRole="NBProject" ToRole="NBReligion" />
+          <NavigationProperty Name="NBScenes" Relationship="NotebookModel.FK_NBScenes_NBProjects" FromRole="NBProject" ToRole="NBScene" />
+          <NavigationProperty Name="NBImages" Relationship="NotebookModel.FK_NBImages_NBProjects" FromRole="NBProject" ToRole="NBImage" />
+          <NavigationProperty Name="NBNotes" Relationship="NotebookModel.FK_NBNotes_NBProjects" FromRole="NBProject" ToRole="NBNote" />
+          <NavigationProperty Name="NBGovernments" Relationship="NotebookModel.FK_NBGovernments_NBProjects" FromRole="NBProject" ToRole="NBGovernment" />
+          <NavigationProperty Name="NBHistories" Relationship="NotebookModel.FK_NBHistories_NBProjects" FromRole="NBProject" ToRole="NBHistory" />
+        </EntityType>
+        <EntityType Name="NBRace">
+          <Key>
+            <PropertyRef Name="NBRaceId" />
+          </Key>
+          <Property Name="NBRaceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NBProjectId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="7" />
+          <Property Name="LastModifiedOn" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="NBProject" Relationship="NotebookModel.FK_NBRaces_NBProjects" FromRole="NBRace" ToRole="NBProject" />
+        </EntityType>
+        <EntityType Name="NBRegion">
+          <Key>
+            <PropertyRef Name="NBRegionId" />
+          </Key>
+          <Property Name="NBRegionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NBProjectId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="7" />
+          <Property Name="LastModifiedOn" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="NBProject" Relationship="NotebookModel.FK_NBRegions_NBProjects" FromRole="NBRegion" ToRole="NBProject" />
+        </EntityType>
+        <EntityType Name="NBReligion">
+          <Key>
+            <PropertyRef Name="NBReligionId" />
+          </Key>
+          <Property Name="NBReligionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NBProjectId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="7" />
+          <Property Name="LastModifiedOn" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="NBProject" Relationship="NotebookModel.FK_NBReligions_NBProjects" FromRole="NBReligion" ToRole="NBProject" />
+        </EntityType>
+        <EntityType Name="NBScene">
+          <Key>
+            <PropertyRef Name="NBSceneId" />
+          </Key>
+          <Property Name="NBSceneId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NBProjectId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="7" />
+          <Property Name="LastModifiedOn" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="NBProject" Relationship="NotebookModel.FK_NBScenes_NBProjects" FromRole="NBScene" ToRole="NBProject" />
+        </EntityType>
+        <EntityType Name="NBUniverse">
+          <Key>
+            <PropertyRef Name="NBUniverseId" />
+          </Key>
+          <Property Name="NBUniverseId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="7" />
+          <Property Name="LastModifiedOn" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="NBProjects" Relationship="NotebookModel.FK_NBProjects_NBUniverses" FromRole="NBUnivers" ToRole="NBProject" />
+        </EntityType>
+        <Association Name="FK_NBCharacters_NBProjects">
+          <End Type="NotebookModel.NBProject" Role="NBProject" Multiplicity="1" />
+          <End Type="NotebookModel.NBCharacter" Role="NBCharacter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProject">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBCharacter">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBCreatures_NBProjects">
+          <End Type="NotebookModel.NBProject" Role="NBProject" Multiplicity="1" />
+          <End Type="NotebookModel.NBCreature" Role="NBCreature" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProject">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBCreature">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBGroups_NBProjects">
+          <End Type="NotebookModel.NBProject" Role="NBProject" Multiplicity="1" />
+          <End Type="NotebookModel.NBGroup" Role="NBGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProject">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBGroup">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBItems_NBProjects">
+          <End Type="NotebookModel.NBProject" Role="NBProject" Multiplicity="1" />
+          <End Type="NotebookModel.NBItem" Role="NBItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProject">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBItem">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBLanguages_NBProjects">
+          <End Type="NotebookModel.NBProject" Role="NBProject" Multiplicity="1" />
+          <End Type="NotebookModel.NBLanguage" Role="NBLanguage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProject">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBLanguage">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBLocations_NBProjects">
+          <End Type="NotebookModel.NBProject" Role="NBProject" Multiplicity="1" />
+          <End Type="NotebookModel.NBLocation" Role="NBLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProject">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBLocation">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBMagics_NBProjects">
+          <End Type="NotebookModel.NBProject" Role="NBProject" Multiplicity="1" />
+          <End Type="NotebookModel.NBMagic" Role="NBMagic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProject">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBMagic">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBOthers_NBProjects">
+          <End Type="NotebookModel.NBProject" Role="NBProject" Multiplicity="1" />
+          <End Type="NotebookModel.NBOther" Role="NBOther" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProject">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBOther">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBPlants_NBProjects">
+          <End Type="NotebookModel.NBProject" Role="NBProject" Multiplicity="1" />
+          <End Type="NotebookModel.NBPlant" Role="NBPlant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProject">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBPlant">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBProjects_NBUniverses">
+          <End Type="NotebookModel.NBUniverse" Role="NBUnivers" Multiplicity="1" />
+          <End Type="NotebookModel.NBProject" Role="NBProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBUnivers">
+              <PropertyRef Name="NBUniverseId" />
+            </Principal>
+            <Dependent Role="NBProject">
+              <PropertyRef Name="NBUniverseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBRaces_NBProjects">
+          <End Type="NotebookModel.NBProject" Role="NBProject" Multiplicity="1" />
+          <End Type="NotebookModel.NBRace" Role="NBRace" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProject">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBRace">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBRegions_NBProjects">
+          <End Type="NotebookModel.NBProject" Role="NBProject" Multiplicity="1" />
+          <End Type="NotebookModel.NBRegion" Role="NBRegion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProject">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBRegion">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBReligions_NBProjects">
+          <End Type="NotebookModel.NBProject" Role="NBProject" Multiplicity="1" />
+          <End Type="NotebookModel.NBReligion" Role="NBReligion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProject">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBReligion">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBScenes_NBProjects">
+          <End Type="NotebookModel.NBProject" Role="NBProject" Multiplicity="1" />
+          <End Type="NotebookModel.NBScene" Role="NBScene" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProject">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBScene">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="NBPrompt">
+          <Key>
+            <PropertyRef Name="NBPromptId" />
+          </Key>
+          <Property Name="NBPromptId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NBCategoryId" Type="Int32" Nullable="false" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Source" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="7" />
+          <Property Name="LastModifiedOn" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="NBCategory" Relationship="NotebookModel.FK_NBPrompts_NBCategories" FromRole="NBPrompt" ToRole="NBCategory" />
+        </EntityType>
+        <EntityType Name="NBResource">
+          <Key>
+            <PropertyRef Name="NBResourceId" />
+          </Key>
+          <Property Name="NBResourceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NBCategoryId" Type="Int32" Nullable="false" />
+          <Property Name="DisplayName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Url" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="7" />
+          <Property Name="LastModifiedOn" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="NBCategory" Relationship="NotebookModel.FK_NBResources_NBCategories" FromRole="NBResource" ToRole="NBCategory" />
+        </EntityType>
+        <Association Name="FK_NBPrompts_NBCategories">
+          <End Type="NotebookModel.NBCategory" Role="NBCategory" Multiplicity="1" />
+          <End Type="NotebookModel.NBPrompt" Role="NBPrompt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBCategory">
+              <PropertyRef Name="NBCategoryId" />
+            </Principal>
+            <Dependent Role="NBPrompt">
+              <PropertyRef Name="NBCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBResources_NBCategories">
+          <End Type="NotebookModel.NBCategory" Role="NBCategory" Multiplicity="1" />
+          <End Type="NotebookModel.NBResource" Role="NBResource" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBCategory">
+              <PropertyRef Name="NBCategoryId" />
+            </Principal>
+            <Dependent Role="NBResource">
+              <PropertyRef Name="NBCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="NBAssociation">
+          <Key>
+            <PropertyRef Name="NBAssociationId" />
+          </Key>
+          <Property Name="NBAssociationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParentCategoryId" Type="Int32" Nullable="false" />
+          <Property Name="ParentId" Type="Int32" Nullable="false" />
+          <Property Name="ChildCategoryId" Type="Int32" Nullable="false" />
+          <Property Name="ChildId" Type="Int32" Nullable="false" />
+          <Property Name="ChildName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="LastModifiedOn" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="NBCategory" Relationship="NotebookModel.FK_NBAssociations_NBCategories" FromRole="NBAssociation" ToRole="NBCategory" />
+          <NavigationProperty Name="NBCategory1" Relationship="NotebookModel.FK_NBAssociations_NBCategories1" FromRole="NBAssociation" ToRole="NBCategory" />
+        </EntityType>
+        <EntityType Name="NBImage">
+          <Key>
+            <PropertyRef Name="NBImageId" />
+          </Key>
+          <Property Name="NBImageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NBProjectId" Type="Int32" Nullable="false" />
+          <Property Name="ObjectCategoryId" Type="Int32" Nullable="false" />
+          <Property Name="ObjectId" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Filename" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="7" />
+          <Property Name="LastModifiedOn" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="NBCategory" Relationship="NotebookModel.FK_NBImages_NBCategories" FromRole="NBImage" ToRole="NBCategory" />
+          <NavigationProperty Name="NBProject" Relationship="NotebookModel.FK_NBImages_NBProjects" FromRole="NBImage" ToRole="NBProject" />
+        </EntityType>
+        <EntityType Name="NBNote">
+          <Key>
+            <PropertyRef Name="NBNoteId" />
+          </Key>
+          <Property Name="NBNoteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NBProjectId" Type="Int32" Nullable="false" />
+          <Property Name="ObjectCategoryId" Type="Int32" Nullable="false" />
+          <Property Name="ObjectId" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="7" />
+          <Property Name="LastModifiedOn" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="NBCategory" Relationship="NotebookModel.FK_NBNotes_NBCategories" FromRole="NBNote" ToRole="NBCategory" />
+          <NavigationProperty Name="NBProject" Relationship="NotebookModel.FK_NBNotes_NBProjects" FromRole="NBNote" ToRole="NBProject" />
+        </EntityType>
+        <Association Name="FK_NBAssociations_NBCategories">
+          <End Type="NotebookModel.NBCategory" Role="NBCategory" Multiplicity="1" />
+          <End Type="NotebookModel.NBAssociation" Role="NBAssociation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBCategory">
+              <PropertyRef Name="NBCategoryId" />
+            </Principal>
+            <Dependent Role="NBAssociation">
+              <PropertyRef Name="ParentCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBAssociations_NBCategories1">
+          <End Type="NotebookModel.NBCategory" Role="NBCategory" Multiplicity="1" />
+          <End Type="NotebookModel.NBAssociation" Role="NBAssociation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBCategory">
+              <PropertyRef Name="NBCategoryId" />
+            </Principal>
+            <Dependent Role="NBAssociation">
+              <PropertyRef Name="ChildCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBImages_NBCategories">
+          <End Type="NotebookModel.NBCategory" Role="NBCategory" Multiplicity="1" />
+          <End Type="NotebookModel.NBImage" Role="NBImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBCategory">
+              <PropertyRef Name="NBCategoryId" />
+            </Principal>
+            <Dependent Role="NBImage">
+              <PropertyRef Name="ObjectCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBNotes_NBCategories">
+          <End Type="NotebookModel.NBCategory" Role="NBCategory" Multiplicity="1" />
+          <End Type="NotebookModel.NBNote" Role="NBNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBCategory">
+              <PropertyRef Name="NBCategoryId" />
+            </Principal>
+            <Dependent Role="NBNote">
+              <PropertyRef Name="ObjectCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBImages_NBProjects">
+          <End Type="NotebookModel.NBProject" Role="NBProject" Multiplicity="1" />
+          <End Type="NotebookModel.NBImage" Role="NBImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProject">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBImage">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBNotes_NBProjects">
+          <End Type="NotebookModel.NBProject" Role="NBProject" Multiplicity="1" />
+          <End Type="NotebookModel.NBNote" Role="NBNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProject">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBNote">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="NBChanges_View">
+          <Key>
+            <PropertyRef Name="NBChangeId" />
+          </Key>
+          <Property Name="NBChangeId" Type="Int64" Nullable="false" />
+          <Property Name="NBCategoryId" Type="Int32" Nullable="false" />
+          <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ObjectId" Nullable="false" Type="Int32" />
+          <Property Name="NBProjectId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IconName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Color" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="7" />
+          <Property Name="LastModifiedOn" Type="DateTime" Precision="7" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NBSearch_View">
+          <Key>
+            <PropertyRef Name="NBSearchId" />
+          </Key>
+          <Property Name="NBSearchId" Type="Int64" Nullable="false" />
+          <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ObjectId" Type="Int32" Nullable="false" />
+          <Property Name="NBProjectId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IconName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Color" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NBGovernment">
+          <Key>
+            <PropertyRef Name="NBGovernmentId" />
+          </Key>
+          <Property Name="NBGovernmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NBProjectId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="7" />
+          <Property Name="LastModifiedOn" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="NBProject" Relationship="NotebookModel.FK_NBGovernments_NBProjects" FromRole="NBGovernment" ToRole="NBProject" />
+        </EntityType>
+        <EntityType Name="NBHistory">
+          <Key>
+            <PropertyRef Name="NBHistoryId" />
+          </Key>
+          <Property Name="NBHistoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NBProjectId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="7" />
+          <Property Name="LastModifiedOn" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="NBProject" Relationship="NotebookModel.FK_NBHistories_NBProjects" FromRole="NBHistory" ToRole="NBProject" />
+        </EntityType>
+        <Association Name="FK_NBGovernments_NBProjects">
+          <End Type="NotebookModel.NBProject" Role="NBProject" Multiplicity="1" />
+          <End Type="NotebookModel.NBGovernment" Role="NBGovernment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProject">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBGovernment">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NBHistories_NBProjects">
+          <End Type="NotebookModel.NBProject" Role="NBProject" Multiplicity="1" />
+          <End Type="NotebookModel.NBHistory" Role="NBHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NBProject">
+              <PropertyRef Name="NBProjectId" />
+            </Principal>
+            <Dependent Role="NBHistory">
+              <PropertyRef Name="NBProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NotebookModelStoreContainer" CdmEntityContainer="NotebookEntities">
+          <EntitySetMapping Name="NBCategories">
+            <EntityTypeMapping TypeName="NotebookModel.NBCategory">
+              <MappingFragment StoreEntitySet="NBCategories">
+                <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="IconName" ColumnName="IconName" />
+                <ScalarProperty Name="TableName" ColumnName="TableName" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="NBCategoryId" ColumnName="NBCategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NBCharacters">
+            <EntityTypeMapping TypeName="NotebookModel.NBCharacter">
+              <MappingFragment StoreEntitySet="NBCharacters">
+                <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NBProjectId" ColumnName="NBProjectId" />
+                <ScalarProperty Name="NBCharacterId" ColumnName="NBCharacterId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NBCreatures">
+            <EntityTypeMapping TypeName="NotebookModel.NBCreature">
+              <MappingFragment StoreEntitySet="NBCreatures">
+                <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NBProjectId" ColumnName="NBProjectId" />
+                <ScalarProperty Name="NBCreatureId" ColumnName="NBCreatureId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NBGroups">
+            <EntityTypeMapping TypeName="NotebookModel.NBGroup">
+              <MappingFragment StoreEntitySet="NBGroups">
+                <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NBProjectId" ColumnName="NBProjectId" />
+                <ScalarProperty Name="NBGroupId" ColumnName="NBGroupId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NBItems">
+            <EntityTypeMapping TypeName="NotebookModel.NBItem">
+              <MappingFragment StoreEntitySet="NBItems">
+                <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NBProjectId" ColumnName="NBProjectId" />
+                <ScalarProperty Name="NBItemId" ColumnName="NBItemId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NBLanguages">
+            <EntityTypeMapping TypeName="NotebookModel.NBLanguage">
+              <MappingFragment StoreEntitySet="NBLanguages">
+                <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NBProjectId" ColumnName="NBProjectId" />
+                <ScalarProperty Name="NBLanguageId" ColumnName="NBLanguageId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NBLocations">
+            <EntityTypeMapping TypeName="NotebookModel.NBLocation">
+              <MappingFragment StoreEntitySet="NBLocations">
+                <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NBProjectId" ColumnName="NBProjectId" />
+                <ScalarProperty Name="NBLocationId" ColumnName="NBLocationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NBMagics">
+            <EntityTypeMapping TypeName="NotebookModel.NBMagic">
+              <MappingFragment StoreEntitySet="NBMagics">
+                <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NBProjectId" ColumnName="NBProjectId" />
+                <ScalarProperty Name="NBMagicId" ColumnName="NBMagicId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NBOthers">
+            <EntityTypeMapping TypeName="NotebookModel.NBOther">
+              <MappingFragment StoreEntitySet="NBOthers">
+                <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NBProjectId" ColumnName="NBProjectId" />
+                <ScalarProperty Name="NBOtherId" ColumnName="NBOtherId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NBPlants">
+            <EntityTypeMapping TypeName="NotebookModel.NBPlant">
+              <MappingFragment StoreEntitySet="NBPlants">
+                <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NBProjectId" ColumnName="NBProjectId" />
+                <ScalarProperty Name="NBPlantId" ColumnName="NBPlantId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NBProjects">
+            <EntityTypeMapping TypeName="NotebookModel.NBProject">
+              <MappingFragment StoreEntitySet="NBProjects">
+                <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Genre" ColumnName="Genre" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NBUniverseId" ColumnName="NBUniverseId" />
+                <ScalarProperty Name="NBProjectId" ColumnName="NBProjectId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NBRaces">
+            <EntityTypeMapping TypeName="NotebookModel.NBRace">
+              <MappingFragment StoreEntitySet="NBRaces">
+                <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NBProjectId" ColumnName="NBProjectId" />
+                <ScalarProperty Name="NBRaceId" ColumnName="NBRaceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NBRegions">
+            <EntityTypeMapping TypeName="NotebookModel.NBRegion">
+              <MappingFragment StoreEntitySet="NBRegions">
+                <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NBProjectId" ColumnName="NBProjectId" />
+                <ScalarProperty Name="NBRegionId" ColumnName="NBRegionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NBReligions">
+            <EntityTypeMapping TypeName="NotebookModel.NBReligion">
+              <MappingFragment StoreEntitySet="NBReligions">
+                <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NBProjectId" ColumnName="NBProjectId" />
+                <ScalarProperty Name="NBReligionId" ColumnName="NBReligionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NBScenes">
+            <EntityTypeMapping TypeName="NotebookModel.NBScene">
+              <MappingFragment StoreEntitySet="NBScenes">
+                <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NBProjectId" ColumnName="NBProjectId" />
+                <ScalarProperty Name="NBSceneId" ColumnName="NBSceneId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NBUniverses">
+            <EntityTypeMapping TypeName="NotebookModel.NBUniverse">
+              <MappingFragment StoreEntitySet="NBUniverses">
+                <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NBUniverseId" ColumnName="NBUniverseId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NBPrompts">
+            <EntityTypeMapping TypeName="NotebookModel.NBPrompt">
+              <MappingFragment StoreEntitySet="NBPrompts">
+                <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="NBCategoryId" ColumnName="NBCategoryId" />
+                <ScalarProperty Name="NBPromptId" ColumnName="NBPromptId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NBResources">
+            <EntityTypeMapping TypeName="NotebookModel.NBResource">
+              <MappingFragment StoreEntitySet="NBResources">
+                <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="NBCategoryId" ColumnName="NBCategoryId" />
+                <ScalarProperty Name="NBResourceId" ColumnName="NBResourceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NBAssociations">
+            <EntityTypeMapping TypeName="NotebookModel.NBAssociation">
+              <MappingFragment StoreEntitySet="NBAssociations">
+                <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ChildName" ColumnName="ChildName" />
+                <ScalarProperty Name="ChildId" ColumnName="ChildId" />
+                <ScalarProperty Name="ChildCategoryId" ColumnName="ChildCategoryId" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="ParentCategoryId" ColumnName="ParentCategoryId" />
+                <ScalarProperty Name="NBAssociationId" ColumnName="NBAssociationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NBImages">
+            <EntityTypeMapping TypeName="NotebookModel.NBImage">
+              <MappingFragment StoreEntitySet="NBImages">
+                <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Filename" ColumnName="Filename" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+                <ScalarProperty Name="ObjectCategoryId" ColumnName="ObjectCategoryId" />
+                <ScalarProperty Name="NBProjectId" ColumnName="NBProjectId" />
+                <ScalarProperty Name="NBImageId" ColumnName="NBImageId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NBNotes">
+            <EntityTypeMapping TypeName="NotebookModel.NBNote">
+              <MappingFragment StoreEntitySet="NBNotes">
+                <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+                <ScalarProperty Name="ObjectCategoryId" ColumnName="ObjectCategoryId" />
+                <ScalarProperty Name="NBProjectId" ColumnName="NBProjectId" />
+                <ScalarProperty Name="NBNoteId" ColumnName="NBNoteId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NBChanges_View">
+            <EntityTypeMapping TypeName="NotebookModel.NBChanges_View">
+              <MappingFragment StoreEntitySet="NBChanges_View">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="IconName" ColumnName="IconName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NBProjectId" ColumnName="NBProjectId" />
+                <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="NBCategoryId" ColumnName="NBCategoryId" />
+                <ScalarProperty Name="NBChangeId" ColumnName="NBChangeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NBSearch_View">
+            <EntityTypeMapping TypeName="NotebookModel.NBSearch_View">
+              <MappingFragment StoreEntitySet="NBSearch_View">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="IconName" ColumnName="IconName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NBProjectId" ColumnName="NBProjectId" />
+                <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="NBSearchId" ColumnName="NBSearchId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NBGovernments">
+            <EntityTypeMapping TypeName="NotebookModel.NBGovernment">
+              <MappingFragment StoreEntitySet="NBGovernments">
+                <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NBProjectId" ColumnName="NBProjectId" />
+                <ScalarProperty Name="NBGovernmentId" ColumnName="NBGovernmentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NBHistories">
+            <EntityTypeMapping TypeName="NotebookModel.NBHistory">
+              <MappingFragment StoreEntitySet="NBHistories">
+                <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NBProjectId" ColumnName="NBProjectId" />
+                <ScalarProperty Name="NBHistoryId" ColumnName="NBHistoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

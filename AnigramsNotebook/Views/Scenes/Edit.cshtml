@@ -1,0 +1,61 @@
+﻿@model AnigramsNotebook.EF.NBScene
+
+@using (Html.BeginForm("Edit", "Scenes", new { projectId = ViewBag.ProjectId, showHidden = ViewBag.ShowHidden }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.NBSceneId)
+    @Html.HiddenFor(model => model.CreatedOn)
+
+    <div class="mdl-grid demo-content">
+        <div class="demo-charts demo-cards mdl-color--white mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col">
+            <div class="mdl-card__title mdl-color-text--white" style="background-color:@ViewBag.CurrentCategory.Color">
+                <i class="material-icons" role="presentation">@ViewBag.CurrentCategory.IconName</i>
+                <h2 class="mdl-card__title-text">Update @Model.Name</h2>
+            </div>
+            <div class="mdl-card__supporting-text mdl-card__supporting-text-scroll">
+                @Html.ValidationSummary(true, "", new { @class = "" })
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "mdl-textfield__input" } })
+                    <label class="mdl-textfield__label" for="name">Name</label>
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "mdl-textfield__error" })
+                </div>
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+                    <input type="text" value="" class="mdl-textfield__input" id="nBProjectId" readonly>
+                    <input type="hidden" value="" name="nBProjectId">
+                    <label for="nBProjectId" class="mdl-textfield__label">Project</label>
+                    <ul for="nBProjectId" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                        @foreach (var item in ViewBag.NBProjectId)
+                        {
+                            <li class="mdl-menu__item" data-val="@item.Value" @(item.Selected ? "data-selected='true'" : "")>@item.Text</li>
+                        }
+                    </ul>
+                </div>
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    @Html.TextAreaFor(model => model.Description, new { @class = "mdl-textfield__input", @rows = "9" })
+                    <label class="mdl-textfield__label" for="description">Description</label>
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "mdl-textfield__error" })
+                </div>
+
+                <div>
+                    <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="IsActive">
+                        @Html.EditorFor(model => model.IsActive, new { htmlAttributes = new { @class = "mdl-switch__input" } })
+                        <span class="mdl-switch__label">Display in results</span>
+                    </label>
+                    @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+                <button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                    Save Changes
+                </button>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

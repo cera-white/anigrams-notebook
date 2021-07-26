@@ -1,0 +1,65 @@
+﻿<div class="mdl-grid demo-content">
+    <div class="demo-charts demo-cards mdl-color--white mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col">
+        <div class="mdl-card__title mdl-color-text--white" style="background-color:@ViewBag.Prompt.NBCategory.Color">
+            <i class="material-icons" role="presentation">@ViewBag.Prompt.NBCategory.IconName</i> 
+            <h2 class="mdl-card__title-text">Question of the Day</h2>
+        </div>
+        <div class="mdl-card__supporting-text">
+            @ViewBag.Prompt.Text
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+            <a href="@Url.Action("Create", "Notes", new { objectCategoryId = ViewBag.Prompt.NBCategory.NBCategoryId, projectId = ViewBag.ProjectId, showHidden = ViewBag.ShowHidden })" class="mdl-button mdl-js-button mdl-js-ripple-effect" target="_blank">Answer Question</a>
+        </div>
+    </div>
+    <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--8-col">
+        <a data-pin-do="embedUser" data-pin-board-width="672" data-pin-scale-height="640" data-pin-scale-width="200" href="https://www.pinterest.com/sakuragirl09/"></a>
+    </div>
+    <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
+        <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
+            <div class="mdl-card__title mdl-color--deep-purple">
+                <i class="material-icons" role="presentation">update</i>
+                <h2 class="mdl-card__title-text">Recently Updated</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+                <ul class="demo-list-two mdl-list">
+                    @foreach (var item in ViewBag.Updates)
+                    {
+                        <li class="mdl-list__item mdl-list__item--two-line">
+                            <a class="mdl-list__item-primary-content" href="@Url.Action("Details", item.CategoryName, new { id = item.ObjectId, projectId = ViewBag.ProjectId, showHidden = ViewBag.ShowHidden })">
+                                <i class="material-icons mdl-list__item-avatar" style="background-color:transparent;color:@item.Color">@item.IconName</i>
+                                <span>@item.Name</span>
+                                <span class="mdl-list__item-sub-title">@string.Format("Updated {0:g}", item.LastModifiedOn)</span>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+                <a href="@Url.Action("Index", "Updates", new { projectId = ViewBag.ProjectId, showHidden = ViewBag.ShowHidden })" class="mdl-button mdl-js-button mdl-js-ripple-effect">View More</a>
+            </div>
+        </div>
+        <div class="demo-separator mdl-cell--1-col"></div>
+        <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
+            <div class="mdl-card__title mdl-color--deep-orange">
+                <i class="material-icons" role="presentation">bookmark_border</i>
+                <h2 class="mdl-card__title-text">Bookmarks</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+                <ul class="demo-list-two mdl-list">
+                    @foreach (var item in ViewBag.Bookmarks)
+                    {
+                        <li class="mdl-list__item">
+                            <a class="mdl-list__item-primary-content" href="@item.Url" target="_blank">
+                                <i class="material-icons mdl-list__item-icon" style="color:@item.NBCategory.Color">@item.NBCategory.IconName</i>
+                                <span>@item.DisplayName</span>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+                <a href="@Url.Action("Index", "Resources", new { projectId = ViewBag.ProjectId, showHidden = ViewBag.ShowHidden })" class="mdl-button mdl-js-button mdl-js-ripple-effect">View More</a>
+            </div>
+        </div>
+    </div>
+</div>
