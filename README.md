@@ -1,5 +1,7 @@
 # The Anigrams Notebook
 
+![Social Preview](./social_preview.png)
+
 This repository contains the source code for the following website:
 
 [The Anigrams Notebook](https://notebook.anigrams.org)
